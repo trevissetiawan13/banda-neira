@@ -51,10 +51,18 @@ function Akomodasi() {
               </div>
 
               <div className="akomodasi-footer">
-                <span className="akomodasi-harga">
-                  Rp {item.harga.toLocaleString("id-ID")}<span>/malam</span>
-                </span>
-                <button className="akomodasi-btn">Pesan Sekarang</button>
+                <div className="akomodasi-info-item">
+                  <span className="info-label">💰 Estimasi:</span>
+                  <span className="info-value">{item.harga}</span>
+                </div>
+                <div className="akomodasi-info-item">
+                  <span className="info-label">📍 Lokasi:</span>
+                  <span className="info-value">{item.lokasi}</span>
+                </div>
+                <div className="akomodasi-info-item">
+                  <span className="info-label">📞 Kontak:</span>
+                  <a href={`tel:${item.kontak}`} className="info-link">{item.kontak}</a>
+                </div>
               </div>
             </div>
           </article>

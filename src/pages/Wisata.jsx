@@ -1,8 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import wisataData from "../data/wisata";
 import "./Wisata.css";
 
 function Wisata() {
+  const [filter, setFilter] = useState("Semua");
+
+  const filteredData =
+    filter === "Semua"
+      ? wisataData
+      : wisataData.filter((item) => item.kategori === filter);
+
   return (
     <main className="wisata-page">
       <section className="wisata-header">
@@ -13,8 +21,20 @@ function Wisata() {
         </p>
       </section>
 
+      <section className="filter-tab">
+        {["Semua", "Sejarah", "Alam"].map((kategori) => (
+          <button
+            key={kategori}
+            className={`filter-btn ${filter === kategori ? "active" : ""}`}
+            onClick={() => setFilter(kategori)}
+          >
+            {kategori}
+          </button>
+        ))}
+      </section>
+
       <section className="wisata-grid">
-        {wisataData.map((wisata) => (
+        {filteredData.map((wisata) => (
           <article className="wisata-card" key={wisata.id}>
             <img src={wisata.gambar} alt={wisata.nama} />
 

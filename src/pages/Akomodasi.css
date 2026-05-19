@@ -115,39 +115,41 @@
 }
 
 .akomodasi-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: auto;
-  border-top: 1px solid #e5e7eb;
   padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.akomodasi-harga {
-  font-size: 18px;
+.akomodasi-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.info-label {
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-text-main);
+  min-width: 80px;
 }
 
-.akomodasi-harga span {
-  font-size: 13px;
-  font-weight: 400;
+.info-value {
   color: var(--color-text-muted);
 }
 
-.akomodasi-btn {
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
+.info-link {
+  color: var(--color-primary);
+  text-decoration: none;
   font-weight: 600;
-  cursor: pointer;
   transition: var(--transition);
 }
 
-.akomodasi-btn:hover {
-  background-color: var(--color-primary-dark);
+.info-link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
