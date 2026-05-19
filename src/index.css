@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --color-primary: #0f766e;
+  --color-primary-dark: #115e59;
+  --color-primary-light: #ccfbf1;
+  --color-background: #f5f7fa;
+  --color-text-main: #1f2937;
+  --color-text-muted: #4b5563;
+  --color-white: #ffffff;
+  
+  --font-heading: 'Kaushan Script', cursive;
+  --font-body: 'Lato', sans-serif;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  
+  --transition: 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-header h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+  color: var(--color-primary);
+}
+
+.page-header p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--color-text-muted);
+}

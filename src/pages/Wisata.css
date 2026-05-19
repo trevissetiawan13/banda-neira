@@ -1,0 +1,117 @@
+.wisata-page {
+  min-height: 100vh;
+  padding: 60px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #f5f7fa;
+  color: #1f2937;
+}
+
+.wisata-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.wisata-header h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.wisata-header p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.wisata-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.wisata-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wisata-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.wisata-card-content {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.wisata-kategori {
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f766e;
+  background-color: #ccfbf1;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.wisata-card h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.wisata-card p {
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.wisata-lokasi {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.wisata-button {
+  display: inline-block;
+  margin-top: auto;
+  padding: 10px 16px;
+  background-color: #0f766e;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.wisata-button:hover {
+  background-color: #115e59;
+}
+
+@media (max-width: 900px) {
+  .wisata-page {
+    padding: 32px 24px;
+  }
+
+  .wisata-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .wisata-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wisata-header h1 {
+    font-size: 32px;
+  }
+}

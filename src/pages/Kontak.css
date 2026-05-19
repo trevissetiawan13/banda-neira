@@ -1,0 +1,147 @@
+.kontak-page {
+  padding: 120px 24px 60px;
+}
+
+.kontak-wrapper {
+  display: flex;
+  gap: 40px;
+  background-color: var(--color-white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.kontak-info-section {
+  flex: 1;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 40px;
+}
+
+.kontak-info-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.kontak-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.kontak-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.kontak-icon {
+  font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.kontak-item strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.kontak-item p {
+  color: #e0f2fe;
+  line-height: 1.5;
+}
+
+.kontak-map {
+  margin-top: 20px;
+}
+
+.kontak-form-section {
+  flex: 1.5;
+  padding: 40px;
+}
+
+.kontak-form-section h2 {
+  font-size: 28px;
+  color: var(--color-text-main);
+  margin-bottom: 30px;
+}
+
+.alert-success {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.kontak-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.submit-btn {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+@media (max-width: 900px) {
+  .kontak-wrapper {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .kontak-info-section,
+  .kontak-form-section {
+    padding: 30px 20px;
+  }
+}

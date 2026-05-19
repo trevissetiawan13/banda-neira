@@ -1,0 +1,131 @@
+.kuliner-page {
+  padding-bottom: 80px;
+}
+
+.kuliner-hero {
+  position: relative;
+  height: 400px;
+  background-image: url("/images/kuliner/kuliner-hero.jpg");
+  background-color: var(--color-primary-dark);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 60px;
+}
+
+.kuliner-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.kuliner-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+}
+
+.kuliner-hero h1 {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.kuliner-hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.kuliner-filter {
+  margin-bottom: 50px;
+}
+
+.kuliner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.kuliner-card {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.kuliner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.kuliner-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.kuliner-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.kuliner-badge {
+  display: inline-block;
+  background-color: #fef3c7;
+  color: #b45309;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  align-self: flex-start;
+}
+
+.kuliner-card h2 {
+  font-size: 22px;
+  color: var(--color-text-main);
+  margin-bottom: 12px;
+}
+
+.kuliner-desc {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.kuliner-lokasi {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-primary);
+  margin-top: auto;
+  border-top: 1px dashed #e5e7eb;
+  padding-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .kuliner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .kuliner-hero h1 {
+    font-size: 40px;
+  }
+  .kuliner-grid {
+    grid-template-columns: 1fr;
+  }
+}

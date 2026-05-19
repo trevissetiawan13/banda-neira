@@ -1,0 +1,163 @@
+.akomodasi-page {
+  padding: 120px 24px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.filter-tab {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border: 1px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.akomodasi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.akomodasi-card {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.akomodasi-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.akomodasi-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.akomodasi-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.akomodasi-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.akomodasi-badge {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.akomodasi-rating {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.akomodasi-card h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--color-text-main);
+}
+
+.akomodasi-desc {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.akomodasi-fasilitas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.fasilitas-tag {
+  background-color: var(--color-background);
+  color: var(--color-text-muted);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.akomodasi-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+.akomodasi-harga {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.akomodasi-harga span {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.akomodasi-btn {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.akomodasi-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+@media (max-width: 900px) {
+  .akomodasi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .akomodasi-grid {
+    grid-template-columns: 1fr;
+  }
+}

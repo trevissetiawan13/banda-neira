@@ -1,0 +1,126 @@
+.transportasi-page {
+  padding: 120px 24px 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.transportasi-content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 28px;
+  color: var(--color-primary-dark);
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--color-primary-light);
+  padding-bottom: 12px;
+}
+
+.transportasi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.transportasi-card {
+  display: flex;
+  background-color: var(--color-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.transportasi-card img {
+  width: 300px;
+  object-fit: cover;
+}
+
+.transportasi-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.transportasi-badge {
+  align-self: flex-start;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.transportasi-info h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: var(--color-text-main);
+}
+
+.rute-info {
+  margin-bottom: 8px;
+  color: var(--color-primary);
+}
+
+.transportasi-info p {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.harga-info {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f3f4f6;
+  color: #1f2937 !important;
+}
+
+.tips-perjalanan {
+  background-color: var(--color-primary-light);
+  padding: 32px;
+  border-radius: 16px;
+  color: var(--color-primary-dark);
+}
+
+.tips-perjalanan h2 {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tips-perjalanan ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tips-perjalanan li {
+  position: relative;
+  padding-left: 24px;
+  line-height: 1.6;
+}
+
+.tips-perjalanan li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .transportasi-card {
+    flex-direction: column;
+  }
+  .transportasi-card img {
+    width: 100%;
+    height: 200px;
+  }
+}
