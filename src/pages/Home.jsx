@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import WeatherWidget from "../components/WeatherWidget";
 import "./Home.css";
 
 function Home() {
@@ -13,9 +14,15 @@ function Home() {
             Banda Neira Island
           </h1>
 
-          <Link to="/wisata" className="hero-button">
-            Jelajah Wisata
-          </Link>
+          <div className="hero-actions">
+            <Link to="/wisata" className="hero-button">
+              Jelajah Wisata
+            </Link>
+            
+            <div className="weather-container">
+              <WeatherWidget />
+            </div>
+          </div>
         </div>
       </section>
 
