@@ -3,18 +3,42 @@ import "./Kontak.css";
 
 function Kontak() {
   const [formData, setFormData] = useState({ nama: "", email: "", pesan: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.nama && formData.email && formData.pesan) {
-      setIsSubmitted(true);
-      setFormData({ nama: "", email: "", pesan: "" });
-      setTimeout(() => setIsSubmitted(false), 5000);
+      setIsSubmitting(true);
+      setErrorMsg(null);
+
+      try {
+        const response = await fetch("https://formspree.io/f/xgoqvpko", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          setIsSubmitted(true);
+          setFormData({ nama: "", email: "", pesan: "" });
+          setTimeout(() => setIsSubmitted(false), 5000);
+        } else {
+          setErrorMsg("Gagal mengirim pesan, silakan coba lagi.");
+        }
+      } catch (error) {
+        setErrorMsg("Terjadi kesalahan jaringan.");
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -78,6 +102,11 @@ function Kontak() {
                 ✅ Pesan Anda telah berhasil dikirim. Kami akan membalas secepatnya!
               </div>
             )}
+            {errorMsg && (
+              <div className="alert-error" style={{ color: "red", backgroundColor: "#fee2e2", padding: "12px", borderRadius: "8px", marginBottom: "20px" }}>
+                ❌ {errorMsg}
+              </div>
+            )}
             <form onSubmit={handleSubmit} className="kontak-form">
               <div className="form-group">
                 <label htmlFor="nama">Nama Lengkap</label>
@@ -115,8 +144,8 @@ function Kontak() {
                   required
                 ></textarea>
               </div>
-              <button type="submit" className="submit-btn">
-                Kirim Pesan
+              <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
               </button>
             </form>
           </section>
