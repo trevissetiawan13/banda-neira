@@ -93,7 +93,7 @@
   display: flex;
   align-items: center;
   gap: 60px;
-  padding: 100px 24px;
+  padding: 140px 24px 100px;
 }
 
 .about-content {
