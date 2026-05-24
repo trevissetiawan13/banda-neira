@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 import "./Kontak.css";
 
 function Kontak() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({ nama: "", email: "", pesan: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -32,10 +34,10 @@ function Kontak() {
           setFormData({ nama: "", email: "", pesan: "" });
           setTimeout(() => setIsSubmitted(false), 5000);
         } else {
-          setErrorMsg("Gagal mengirim pesan, silakan coba lagi.");
+          setErrorMsg(t("sendError"));
         }
-      } catch (error) {
-        setErrorMsg("Terjadi kesalahan jaringan.");
+      } catch {
+        setErrorMsg(t("networkError"));
       } finally {
         setIsSubmitting(false);
       }
@@ -45,37 +47,33 @@ function Kontak() {
   return (
     <main className="kontak-page">
       <section className="page-header">
-        <h1>Hubungi Kami</h1>
-        <p>
-          Punya pertanyaan seputar wisata di Banda Neira? Jangan ragu untuk
-          menghubungi kami melalui form di bawah ini atau kunjungi kantor
-          informasi kami.
-        </p>
+        <h1>{t("contactPageTitle")}</h1>
+        <p>{t("contactPageSub")}</p>
       </section>
 
       <div className="container">
         <div className="kontak-wrapper">
           <section className="kontak-info-section">
-            <h2>Informasi Kontak</h2>
+            <h2>{t("contactInfo")}</h2>
             <div className="kontak-info-list">
               <div className="kontak-item">
                 <span className="kontak-icon">📍</span>
                 <div>
-                  <strong>Alamat</strong>
+                  <strong>{t("address")}</strong>
                   <p>Jl. Pelabuhan Banda Neira, Nusantara, Maluku Tengah, Maluku 97593</p>
                 </div>
               </div>
               <div className="kontak-item">
                 <span className="kontak-icon">📞</span>
                 <div>
-                  <strong>Telepon</strong>
+                  <strong>{t("phone")}</strong>
                   <p>+62 811-2233-4455</p>
                 </div>
               </div>
               <div className="kontak-item">
                 <span className="kontak-icon">✉️</span>
                 <div>
-                  <strong>Email</strong>
+                  <strong>{t("email")}</strong>
                   <p>info@wisatabandaneira.id</p>
                 </div>
               </div>
@@ -96,10 +94,10 @@ function Kontak() {
           </section>
 
           <section className="kontak-form-section">
-            <h2>Kirim Pesan</h2>
+            <h2>{t("sendMessage")}</h2>
             {isSubmitted && (
               <div className="alert-success">
-                ✅ Pesan Anda telah berhasil dikirim. Kami akan membalas secepatnya!
+                ✅ {t("sendSuccess")}
               </div>
             )}
             {errorMsg && (
@@ -109,43 +107,43 @@ function Kontak() {
             )}
             <form onSubmit={handleSubmit} className="kontak-form">
               <div className="form-group">
-                <label htmlFor="nama">Nama Lengkap</label>
+                <label htmlFor="nama">{t("fullName")}</label>
                 <input
                   type="text"
                   id="nama"
                   name="nama"
                   value={formData.nama}
                   onChange={handleChange}
-                  placeholder="Masukkan nama Anda"
+                  placeholder={t("namePlaceholder")}
                   required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Alamat Email</label>
+                <label htmlFor="email">{t("emailAddr")}</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Masukkan email aktif"
+                  placeholder={t("emailPlaceholder")}
                   required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="pesan">Pesan</label>
+                <label htmlFor="pesan">{t("message")}</label>
                 <textarea
                   id="pesan"
                   name="pesan"
                   rows="6"
                   value={formData.pesan}
                   onChange={handleChange}
-                  placeholder="Tulis pesan atau pertanyaan Anda di sini..."
+                  placeholder={t("messagePlaceholder")}
                   required
                 ></textarea>
               </div>
               <button type="submit" className="submit-btn" disabled={isSubmitting}>
-                {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
+                {isSubmitting ? t("sending") : t("sendMessage")}
               </button>
             </form>
           </section>

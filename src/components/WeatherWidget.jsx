@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useLanguage } from "../context/LanguageContext";
 import "./WeatherWidget.css";
 
 function WeatherWidget() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Koordinat Banda Neira: -4.5267, 129.9011
@@ -28,24 +30,24 @@ function WeatherWidget() {
 
   // Mengubah kode cuaca (WMO) menjadi icon dan deskripsi sederhana
   const getWeatherInfo = (code) => {
-    if (code === 0) return { icon: "☀️", text: "Cerah" };
-    if (code === 1 || code === 2 || code === 3) return { icon: "⛅", text: "Berawan" };
-    if (code >= 45 && code <= 48) return { icon: "🌫️", text: "Berkabut" };
-    if (code >= 51 && code <= 67) return { icon: "🌧️", text: "Hujan" };
-    if (code >= 71 && code <= 77) return { icon: "❄️", text: "Salju" };
-    if (code >= 80 && code <= 82) return { icon: "🌦️", text: "Hujan Deras" };
-    if (code >= 95) return { icon: "⛈️", text: "Badai Petir" };
-    return { icon: "🌡️", text: "Normal" };
+    if (code === 0) return { icon: "☀️", textKey: "weatherSunny" };
+    if (code === 1 || code === 2 || code === 3) return { icon: "⛅", textKey: "weatherCloudy" };
+    if (code >= 45 && code <= 48) return { icon: "🌫️", textKey: "weatherFoggy" };
+    if (code >= 51 && code <= 67) return { icon: "🌧️", textKey: "weatherRainy" };
+    if (code >= 71 && code <= 77) return { icon: "❄️", textKey: "weatherSnowy" };
+    if (code >= 80 && code <= 82) return { icon: "🌦️", textKey: "weatherHeavyRain" };
+    if (code >= 95) return { icon: "⛈️", textKey: "weatherThunderstorm" };
+    return { icon: "🌡️", textKey: "weatherNormal" };
   };
 
-  const { icon, text } = getWeatherInfo(weather.weathercode);
+  const { icon, textKey } = getWeatherInfo(weather.weathercode);
 
   return (
     <div className="weather-widget">
       <div className="weather-icon">{icon}</div>
       <div className="weather-info">
         <span className="weather-temp">{Math.round(weather.temperature)}°C</span>
-        <span className="weather-desc">{text} di Banda Neira</span>
+        <span className="weather-desc">{t(textKey)} {t("weatherInBanda")}</span>
       </div>
     </div>
   );

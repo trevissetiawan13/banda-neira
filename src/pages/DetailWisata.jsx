@@ -1,9 +1,11 @@
 import { useParams, Link } from "react-router-dom";
 import wisataData from "../data/wisata";
+import { useLanguage } from "../context/LanguageContext";
 import "./DetailWisata.css";
 
 function DetailWisata() {
   const { id } = useParams();
+  const { language, t } = useLanguage();
 
   const wisata = wisataData.find(
     (item) => item.id === parseInt(id)
@@ -12,8 +14,8 @@ function DetailWisata() {
   if (!wisata) {
     return (
       <div className="detail-not-found">
-        <h1>Wisata tidak ditemukan</h1>
-        <Link to="/wisata">Kembali ke halaman wisata</Link>
+        <h1>{t("notFoundWisata")}</h1>
+        <Link to="/wisata">{t("backToHome")}</Link>
       </div>
     );
   }
@@ -22,34 +24,43 @@ function DetailWisata() {
     .filter(item => item.id !== wisata.id)
     .slice(0, 3);
 
+  const namaWisata = language === "en" ? wisata.nama_en || wisata.nama : wisata.nama;
+  const lokasiWisata = language === "en" ? wisata.lokasi_en || wisata.lokasi : wisata.lokasi;
+  const kategoriWisata = t(wisata.kategori === "Sejarah" ? "history" : "nature");
+  const deskripsiWisata = language === "en"
+    ? wisata.deskripsiPanjang_en || wisata.deskripsiPanjang || wisata.deskripsi_en || wisata.deskripsi
+    : wisata.deskripsiPanjang || wisata.deskripsi;
+  const jamBukaWisata = language === "en" ? wisata.jamBuka_en || wisata.jamBuka : wisata.jamBuka;
+  const hargaTiketWisata = language === "en" ? wisata.hargaTiket_en || wisata.hargaTiket : wisata.hargaTiket;
+
   return (
     <main className="detail-page">
       <section className="detail-hero">
         <div className="detail-hero-overlay"></div>
-        <img src={wisata.gambar} alt={wisata.nama} className="detail-hero-img" />
+        <img src={wisata.gambar} alt={namaWisata} className="detail-hero-img" />
         <div className="detail-hero-text">
           <div className="breadcrumb">
-            <Link to="/">Beranda</Link> &raquo; <Link to="/wisata">Wisata</Link> &raquo; <span>{wisata.nama}</span>
+            <Link to="/">{t("home")}</Link> &raquo; <Link to="/wisata">{t("wisata")}</Link> &raquo; <span>{namaWisata}</span>
           </div>
-          <h1>{wisata.nama}</h1>
-          <p>📍 {wisata.lokasi}</p>
+          <h1>{namaWisata}</h1>
+          <p>📍 {lokasiWisata}</p>
         </div>
       </section>
 
       <div className="container detail-container">
         <div className="detail-main">
           <section className="detail-section">
-            <h2>Tentang {wisata.nama}</h2>
-            <span className="detail-badge">{wisata.kategori}</span>
-            <p className="detail-desc">{wisata.deskripsiPanjang || wisata.deskripsi}</p>
+            <h2>{t("aboutWisata")} {namaWisata}</h2>
+            <span className="detail-badge">{kategoriWisata}</span>
+            <p className="detail-desc">{deskripsiWisata}</p>
           </section>
 
           {wisata.gambarGaleri && wisata.gambarGaleri.length > 0 && (
             <section className="detail-section">
-              <h2>Galeri</h2>
+              <h2>{t("photoGallery")}</h2>
               <div className="detail-gallery">
                 {wisata.gambarGaleri.map((img, idx) => (
-                  <img key={idx} src={img} alt={`Galeri ${wisata.nama} ${idx + 1}`} />
+                  <img key={idx} src={img} alt={`Galeri ${namaWisata} ${idx + 1}`} />
                 ))}
               </div>
             </section>
@@ -58,30 +69,30 @@ function DetailWisata() {
 
         <aside className="detail-sidebar">
           <div className="info-card">
-            <h3>Informasi Praktis</h3>
+            <h3>{t("practicalInfo")}</h3>
             <div className="info-item">
-              <strong>🕒 Jam Buka:</strong>
-              <p>{wisata.jamBuka || "24 Jam"}</p>
+              <strong>🕒 {t("openHours")}:</strong>
+              <p>{jamBukaWisata || "24 Jam"}</p>
             </div>
             <div className="info-item">
-              <strong>🎟️ Harga Tiket:</strong>
-              <p>{wisata.hargaTiket || "Gratis"}</p>
+              <strong>🎟️ {t("ticketPrice")}:</strong>
+              <p>{hargaTiketWisata || "Gratis"}</p>
             </div>
             <div className="info-item">
-              <strong>🧭 Koordinat:</strong>
+              <strong>🧭 {t("coordinates")}:</strong>
               <p>{wisata.koordinat || "N/A"}</p>
             </div>
           </div>
 
           <div className="related-wisata">
-            <h3>Wisata Lainnya</h3>
+            <h3>{t("otherWisata")}</h3>
             <div className="related-list">
               {relatedWisata.map(item => (
                 <Link to={`/wisata/${item.id}`} className="related-card" key={item.id}>
-                  <img src={item.gambar} alt={item.nama} />
+                  <img src={item.gambar} alt={language === "en" ? item.nama_en || item.nama : item.nama} />
                   <div className="related-info">
-                    <h4>{item.nama}</h4>
-                    <span>{item.kategori}</span>
+                    <h4>{language === "en" ? item.nama_en || item.nama : item.nama}</h4>
+                    <span>{t(item.kategori === "Sejarah" ? "history" : "nature")}</span>
                   </div>
                 </Link>
               ))}

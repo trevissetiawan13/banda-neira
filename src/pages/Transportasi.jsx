@@ -1,66 +1,67 @@
 import transportasiData from "../data/transportasi";
+import { useLanguage } from "../context/LanguageContext";
 import "./Transportasi.css";
 
 function Transportasi() {
+  const { language, t } = useLanguage();
+
   const menujuBanda = transportasiData.filter(item => item.moda !== "Speedboat");
   const lokal = transportasiData.filter(item => item.moda === "Speedboat");
+
+  const renderTransportList = (list) => {
+    return list.map(item => {
+      const modaLabel = language === "en" ? item.moda_en || item.moda : item.moda;
+      const namaLabel = language === "en" ? item.nama_en || item.nama : item.nama;
+      const ruteLabel = language === "en" ? item.rute_en || item.rute : item.rute;
+      const deskripsiLabel = language === "en" ? item.deskripsi_en || item.deskripsi : item.deskripsi;
+      const hargaLabel = language === "en" ? item.harga_en || item.harga : item.harga;
+
+      return (
+        <article className="transportasi-card" key={item.id}>
+          <img src={item.gambar} alt={namaLabel} />
+          <div className="transportasi-info">
+            <span className="transportasi-badge">{modaLabel}</span>
+            <h3>{namaLabel}</h3>
+            <p className="rute-info"><strong>{t("route")}:</strong> {ruteLabel}</p>
+            <p>{deskripsiLabel}</p>
+            <p className="harga-info"><strong>{t("estPrice")}:</strong> {hargaLabel}</p>
+          </div>
+        </article>
+      );
+    });
+  };
 
   return (
     <main className="transportasi-page">
       <section className="page-header">
-        <h1>Panduan Transportasi</h1>
-        <p>
-          Temukan cara terbaik menuju Banda Neira dan pilihan transportasi 
-          untuk menjelajahi pulau-pulau di sekitarnya.
-        </p>
+        <h1>{t("transPageTitle")}</h1>
+        <p>{t("transPageSub")}</p>
       </section>
 
       <div className="container">
         <div className="transportasi-content">
           <section className="transportasi-section">
-            <h2 className="section-title">🚢 Cara Menuju Banda Neira</h2>
+            <h2 className="section-title">🚢 {t("howToGet")}</h2>
             <div className="transportasi-list">
-              {menujuBanda.map(item => (
-                <article className="transportasi-card" key={item.id}>
-                  <img src={item.gambar} alt={item.nama} />
-                  <div className="transportasi-info">
-                    <span className="transportasi-badge">{item.moda}</span>
-                    <h3>{item.nama}</h3>
-                    <p className="rute-info"><strong>Rute:</strong> {item.rute}</p>
-                    <p>{item.deskripsi}</p>
-                    <p className="harga-info"><strong>Estimasi Harga:</strong> {item.harga}</p>
-                  </div>
-                </article>
-              ))}
+              {renderTransportList(menujuBanda)}
             </div>
           </section>
 
           <section className="transportasi-section">
-            <h2 className="section-title">🚤 Transportasi Lokal (Antar Pulau)</h2>
+            <h2 className="section-title">🚤 {t("localTrans")}</h2>
             <div className="transportasi-list">
-              {lokal.map(item => (
-                <article className="transportasi-card" key={item.id}>
-                  <img src={item.gambar} alt={item.nama} />
-                  <div className="transportasi-info">
-                    <span className="transportasi-badge">{item.moda}</span>
-                    <h3>{item.nama}</h3>
-                    <p className="rute-info"><strong>Rute:</strong> {item.rute}</p>
-                    <p>{item.deskripsi}</p>
-                    <p className="harga-info"><strong>Estimasi Harga:</strong> {item.harga}</p>
-                  </div>
-                </article>
-              ))}
+              {renderTransportList(lokal)}
             </div>
           </section>
         </div>
 
         <section className="tips-perjalanan">
-          <h2>💡 Tips Perjalanan</h2>
+          <h2>💡 {t("tipsTitle")}</h2>
           <ul>
-            <li>Cek jadwal kapal Pelni secara berkala karena jadwal sering berubah.</li>
-            <li>Pemesanan tiket pesawat perintis (Susi Air/Sam Air) biasanya harus dilakukan langsung di bandara.</li>
-            <li>Bawa uang tunai yang cukup, karena mesin ATM terbatas di Banda Neira.</li>
-            <li>Perjalanan laut ke Banda Neira sangat bergantung pada cuaca dan musim (hindari musim ombak tinggi di bulan Juli-Agustus).</li>
+            <li>{t("tip1")}</li>
+            <li>{t("tip2")}</li>
+            <li>{t("tip3")}</li>
+            <li>{t("tip4")}</li>
           </ul>
         </section>
       </div>
