@@ -67,14 +67,14 @@ function Kontak() {
                 <span className="kontak-icon">📞</span>
                 <div>
                   <strong>{t("phone")}</strong>
-                  <p>+62 811-2233-4455</p>
+                  <p>+62 811-9131-332</p>
                 </div>
               </div>
               <div className="kontak-item">
                 <span className="kontak-icon">✉️</span>
                 <div>
                   <strong>{t("email")}</strong>
-                  <p>info@wisatabandaneira.id</p>
+                  <p>web.banda.neira@gmail.com</p>
                 </div>
               </div>
             </div>
