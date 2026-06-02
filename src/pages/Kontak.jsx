@@ -20,7 +20,7 @@ function Kontak() {
       setErrorMsg(null);
 
       try {
-        const response = await fetch("https://formspree.io/f/xgoqvpko", {
+        const response = await fetch("https://formspree.io/f/xjgznrwk", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
