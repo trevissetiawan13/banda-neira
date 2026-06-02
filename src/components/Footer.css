@@ -1,0 +1,125 @@
+.footer {
+  background-color: #0f172a; /* Slate gelap premium */
+  color: #e2e8f0;
+  padding: 60px 0 0;
+  font-family: var(--font-body);
+  border-top: 4px solid var(--color-primary);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: var(--color-white);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.footer-slogan {
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-links h4::after,
+.footer-contact h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 30px;
+  height: 2px;
+  background-color: var(--color-primary);
+}
+
+.footer-links nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links nav a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.footer-links nav a:hover {
+  color: var(--color-white);
+  transform: translateX(4px);
+}
+
+.footer-contact p {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #1e293b;
+  padding: 24px 0;
+  background-color: #0b0f19;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.social-text {
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-slogan {
+    margin: 0 auto;
+  }
+
+  .footer-links h4::after,
+  .footer-contact h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-links nav a:hover {
+    transform: none;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

@@ -33,9 +33,11 @@ function Transportasi() {
 
   return (
     <main className="transportasi-page">
-      <section className="page-header">
-        <h1>{t("transPageTitle")}</h1>
-        <p>{t("transPageSub")}</p>
+      <section className="page-hero" style={{ backgroundImage: "url('/images/transportasi/kapal-pelni.jpg')" }}>
+        <div className="page-hero-content">
+          <h1>{t("transPageTitle")}</h1>
+          <p>{t("transPageSub")}</p>
+        </div>
       </section>
 
       <div className="container">

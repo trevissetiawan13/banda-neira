@@ -118,6 +118,10 @@ const translations = {
     weatherSnowy: "Salju",
     weatherHeavyRain: "Hujan Deras",
     weatherThunderstorm: "Badai Petir",
+
+    // Footer
+    footerSlogan: "Jelajahi keindahan sejarah dan pesona alam tersembunyi di Kepulauan Banda.",
+    quickLinks: "Tautan Pintas",
   },
   en: {
     // Navbar
@@ -235,6 +239,10 @@ const translations = {
     weatherSnowy: "Snowy",
     weatherHeavyRain: "Heavy Rain",
     weatherThunderstorm: "Thunderstorm",
+
+    // Footer
+    footerSlogan: "Explore the historical beauty and hidden natural charms of the Banda Islands.",
+    quickLinks: "Quick Links",
   }
 };
 

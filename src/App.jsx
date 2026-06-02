@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Wisata from "./pages/Wisata";
@@ -23,6 +24,8 @@ function App() {
         <Route path="/transportasi" element={<Transportasi />} />
         <Route path="/kontak" element={<Kontak />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }

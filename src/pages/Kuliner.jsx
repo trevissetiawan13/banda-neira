@@ -28,8 +28,8 @@ function Kuliner() {
 
   return (
     <main className="kuliner-page">
-      <section className="kuliner-hero">
-        <div className="kuliner-hero-content">
+      <section className="page-hero" style={{ backgroundImage: "url('/images/kuliner/kuliner-hero.jpg')" }}>
+        <div className="page-hero-content">
           <h1>{t("culinaryPageTitle")}</h1>
           <p>{t("culinaryPageSub")}</p>
         </div>

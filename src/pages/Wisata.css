@@ -1,28 +1,8 @@
 .wisata-page {
   min-height: 100vh;
-  padding: 60px 40px;
-  max-width: 1400px;
-  margin: 0 auto;
+  padding-bottom: 80px;
   background-color: #f5f7fa;
   color: #1f2937;
-}
-
-.wisata-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.wisata-header h1 {
-  font-size: 42px;
-  margin-bottom: 12px;
-  color: var(--color-primary);
-}
-
-.wisata-header p {
-  max-width: 720px;
-  margin: 0 auto;
-  color: #4b5563;
-  line-height: 1.6;
 }
 
 .filter-tab {

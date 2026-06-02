@@ -38,19 +38,45 @@ body {
   padding: 0 24px;
 }
 
-.page-header {
+.page-hero {
+  position: relative;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  color: var(--color-white);
   margin-bottom: 60px;
 }
 
-.page-header h1 {
-  font-size: 42px;
-  margin-bottom: 12px;
-  color: var(--color-primary);
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
 }
 
-.page-header p {
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+}
+
+.page-hero h1 {
+  font-family: var(--font-heading);
+  font-size: 52px;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: var(--color-white);
+}
+
+.page-hero p {
+  font-size: 18px;
   max-width: 720px;
   margin: 0 auto;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
 }

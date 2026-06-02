@@ -131,6 +131,23 @@
   padding: 100px 0;
 }
 
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  color: var(--color-primary-dark);
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--color-text-muted);
+}
+
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -138,37 +155,67 @@
 }
 
 .category-card {
-  background-color: var(--color-background);
-  padding: 32px 24px;
+  position: relative;
   border-radius: 16px;
-  text-align: center;
+  overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: var(--transition);
-  border: 1px solid transparent;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: flex-end;
 }
 
-.category-card:hover {
-  transform: translateY(-8px);
-  background-color: var(--color-white);
-  border-color: var(--color-primary-light);
-  box-shadow: var(--shadow-sm);
+.category-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-.category-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
+.category-card:hover .category-card-img {
+  transform: scale(1.08);
+}
+
+.category-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.category-card:hover .category-card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+.category-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  color: white;
 }
 
 .category-card h3 {
   font-size: 20px;
-  color: var(--color-primary);
-  margin-bottom: 12px;
+  color: white;
+  margin-bottom: 6px;
 }
 
 .category-card p {
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .stats-section {

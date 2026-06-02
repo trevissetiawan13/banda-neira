@@ -2,46 +2,7 @@
   padding-bottom: 80px;
 }
 
-.kuliner-hero {
-  position: relative;
-  height: 400px;
-  background-image: url("/images/kuliner/kuliner-hero.jpg");
-  background-color: var(--color-primary-dark);
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--color-white);
-  margin-bottom: 60px;
-}
 
-.kuliner-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.kuliner-hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 0 24px;
-}
-
-.kuliner-hero h1 {
-  font-family: var(--font-heading);
-  font-size: 56px;
-  margin-bottom: 16px;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.kuliner-hero p {
-  font-size: 18px;
-  max-width: 600px;
-  margin: 0 auto;
-}
 
 .kuliner-filter {
   margin-bottom: 50px;

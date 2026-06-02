@@ -42,31 +42,43 @@ function Home() {
 
       <section className="categories-section">
         <div className="container">
-          <div className="page-header">
+          <div className="section-header">
             <h2>{t("exploreBanda")}</h2>
             <p>{t("exploreBandaSub")}</p>
           </div>
           
           <div className="categories-grid">
             <Link to="/wisata" className="category-card">
-              <div className="category-icon">🏛️</div>
-              <h3>{t("destTitle")}</h3>
-              <p>{t("destDesc")}</p>
+              <img src="/images/wisata/benteng-belgica.jpg" alt="Destinasi Wisata" className="category-card-img" />
+              <div className="category-card-overlay"></div>
+              <div className="category-card-content">
+                <h3>{t("destTitle")}</h3>
+                <p>{t("destDesc")}</p>
+              </div>
             </Link>
             <Link to="/akomodasi" className="category-card">
-              <div className="category-icon">🏨</div>
-              <h3>{t("accomTitle")}</h3>
-              <p>{t("accomDesc")}</p>
+              <img src="/images/akomodasi/banda-homestay.jpg" alt="Akomodasi" className="category-card-img" />
+              <div className="category-card-overlay"></div>
+              <div className="category-card-content">
+                <h3>{t("accomTitle")}</h3>
+                <p>{t("accomDesc")}</p>
+              </div>
             </Link>
             <Link to="/kuliner" className="category-card">
-              <div className="category-icon">🍽️</div>
-              <h3>{t("culinaryTitle")}</h3>
-              <p>{t("culinaryDesc")}</p>
+              <img src="/images/kuliner/kuliner-hero.jpg" alt="Kuliner" className="category-card-img" />
+              <div className="category-card-overlay"></div>
+              <div className="category-card-content">
+                <h3>{t("culinaryTitle")}</h3>
+                <p>{t("culinaryDesc")}</p>
+              </div>
             </Link>
             <Link to="/transportasi" className="category-card">
-              <div className="category-icon">🚢</div>
-              <h3>{t("transTitle")}</h3>
-              <p>{t("transDesc")}</p>
+              <img src="/images/transportasi/kapal-cepat.jpg" alt="Transportasi" className="category-card-img" />
+              <div className="category-card-overlay"></div>
+              <div className="category-card-content">
+                <h3>{t("transTitle")}</h3>
+                <p>{t("transDesc")}</p>
+              </div>
             </Link>
           </div>
         </div>
