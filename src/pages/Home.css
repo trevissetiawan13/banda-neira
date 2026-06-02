@@ -219,12 +219,27 @@
 }
 
 .stats-section {
-  background-color: var(--color-primary-dark);
+  position: relative;
+  background-image: url("/images/wisata/lava-flow.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--color-white);
-  padding: 80px 0;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.stats-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 78, 73, 0.85); /* Teal gelap premium */
+  z-index: 1;
 }
 
 .stats-container {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: space-around;
   text-align: center;
